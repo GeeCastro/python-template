@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = ["G <gauthier.castro@gmail.com>"]
+readme = "README.md"
+
+packages = [{ include = "python_template", from = "src" }]
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "artifact"
+url = "https://myawsaccount-1234567890.d.codeartifact.eu-west-1.amazonaws.com/pypi/ml/simple/"
+priority = "supplemental"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+loguru = "^0.7.2"
+torch = [
+    { url = "https://download.pytorch.org/whl/cpu/torch-2.2.1-cp310-none-macosx_11_0_arm64.whl", markers = "sys_platform == 'darwin' and platform_machine == 'arm64'" },
+    { url = "https://download.pytorch.org/whl/cu118/torch-2.2.1%2Bcu118-cp310-cp310-linux_x86_64.whl", markers = "sys_platform == 'linux' and platform_machine == 'x86_64'" },
+]
+torchvision = "^0.17.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.2"
+black = "^24.2.0"
+ruff = "^0.2.2"
+pytest = "^8.0.2"
+mypy = "^1.8.0"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.scripts]
+vpdetector = "python_template.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+#############################
+#### Tools configuration ####
+#############################
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.ruff]
+# Same as Black.
+line-length = 120
+indent-width = 4
+
+# Assume Python 3.10
+target-version = "py310"
