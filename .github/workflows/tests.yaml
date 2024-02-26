@@ -1,0 +1,29 @@
+name: Python tests
+
+on:
+  pull_request:
+    paths:
+      - 'tests/**'
+      - 'src/**'
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: setup poetry
+        run: |
+          pip install poetry==1.7.1
+          make python-env
+      - name: Run unit tests
+        run: |
+          make tests
