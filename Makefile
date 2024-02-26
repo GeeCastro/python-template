@@ -43,7 +43,7 @@ check-types: ## check types with mypy
 	poetry run mypy src/
 
 check-style: ## check style with flake8, isort and black
-	poetry run ruff --fix=false .
+	poetry run ruff --no-fix .
 	poetry run black --check --diff .
 
 fix-style: ## fix black and isort style violations
