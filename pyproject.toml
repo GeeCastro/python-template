@@ -47,10 +47,15 @@ build-backend = "poetry.core.masonry.api"
 [tool.mypy]
 ignore_missing_imports = true
 
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
 [tool.ruff]
 # Same as Black.
 line-length = 120
 indent-width = 4
+fix = true
 
 # Assume Python 3.10
 target-version = "py310"
