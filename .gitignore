@@ -1,0 +1,74 @@
+# NOT IGNORE
+!tests/resources/dataset_raw.csv
+
+# pre processing package image logs
+scpl_logs/
+
+# based on https://raw.githubusercontent.com/python-poetry/poetry/master/.gitignore
+__pycache__
+*.pyc
+
+# Packages
+*.egg
+!/tests/**/*.egg
+/*.egg-info
+/dist/*
+build
+_build
+.cache
+*.so
+*.whl
+*.tar
+*.tar.gz
+*.tgz
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.pytest_cache
+htmlcov
+
+.DS_Store
+.idea/*
+.python-version
+.vscode/*
+
+/test.py
+/test_*.*
+
+/setup.cfg
+MANIFEST.in
+/setup.py
+/docs/site/*
+.mypy_cache
+
+python-env
+/releases/*
+pip-wheel-metadata
+/poetry.toml
+
+.env
+.ipynb_checkpoints
+
+# images
+*.png
+*.PNG
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+
+# models
+*.mar
+*.pickle
+*.pkl
+*.onnx
+*.pt
+*.pth
+
+*.csv
+
+data/*
